@@ -7,14 +7,17 @@ import Cart from './pages/Cart/Cart'
 
 const App = () => {
   return (
-    <div className='app'>
-       <Navbar/>
-       <Routes>
-          <Route path ='/' element ={<Home/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/order' element={<PlaceOrder/>}/>
-       </Routes>
-    </div>
+    <> //use to return only one element
+      <div className='app'>
+        <Navbar/>
+        <Routes>
+            <Route path ='/' element ={<Home/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/order' element={<PlaceOrder/>}/>
+        </Routes>
+      </div>
+      <footer />
+    </>
   )
 }
 
