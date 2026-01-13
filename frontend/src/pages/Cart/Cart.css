@@ -43,7 +43,12 @@ width: 50px;
     justify-content: space-between;
     color: #555;
 }
+
 .cart-total hr{
+    margin: 10px 0px;
+}
+
+.cart-total button{
     border: none;
     color:white;
     background-color: tomato;
@@ -60,6 +65,15 @@ width: 50px;
 
 .cart-promocode p {
     color:#555;
+}
+
+.cart-promocode-input{
+    margin-top:10px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color: #eaeaea;
+    border-radius: 4px;
 }
 
 .cart-promocode-input input{
