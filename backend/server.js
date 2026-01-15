@@ -1,5 +1,7 @@
 import express from "express"
 import cors from "cors"
+import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoutes.js";
 
 
 const app = express()
@@ -13,5 +15,18 @@ app.use(cors())
 
 
 //http method to request data form server
-app.get("/",(req,res)=>)
+app.get("/",(req,res)=>{
+    res.send("API Working")
+})
+ //db connection
+ connectDB();
 
+
+ //api endpoints
+ app.use("/api/food",foodRouter);
+
+//run the express server
+app.listen(4000,()=>{
+    console.log("Server is start on http://localhost:4000");
+
+})
