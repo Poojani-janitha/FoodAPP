@@ -24,6 +24,8 @@ app.get("/",(req,res)=>{
 
  //api endpoints
  app.use("/api/food",foodRouter);
+ app.use('/images', express.static('uploads')); // Serve images statically ,can acess images using this route
+
 
 //run the express server
 app.listen(4000,()=>{
