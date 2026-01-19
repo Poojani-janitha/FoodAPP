@@ -4,7 +4,9 @@ import './List.css'
 const list = () => {
   return (
     <div>
-      list
+      const [list, setList] = useState([]);
+      const fetchList = async () => {
+        const response awa
     </div>
   )
 }
