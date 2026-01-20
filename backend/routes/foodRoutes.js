@@ -16,4 +16,4 @@ const upload = multer({storage:storage});//image store in uploads folder
 foodRouter.post("/add",upload.single("image"),addFood);
 foodRouter.get("/list",listFood); //list food is  a function in controller file , this route is help to access it
 foodRouter.delete("/remove",removeFood);
-export default foodRouter;//route to add food item
+export default foodRouter;//route to add food item  
