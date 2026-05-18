@@ -3,6 +3,7 @@ import cors from "cors"
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 import 'dotenv/config.js'
 
 
@@ -28,6 +29,7 @@ app.get("/",(req,res)=>{
  app.use("/api/food",foodRouter);
  app.use('/images', express.static('uploads')); // Serve images statically ,can acess images using this route
 app.use("/api/users", userRouter);
+ app.use("/api/order", orderRouter);
 
 //run the express server
 app.listen(4000,()=>{

@@ -8,10 +8,7 @@ import Orders from './pages/Orders/Orders.jsx'
 import { ToastContainer } from 'react-toastify';//to show toast notifications
 import 'react-toastify/dist/ReactToastify.css';//import toastify css
 
-
-
-
-const App = ({url}) => {
+const App = () => {
    const url = 'http://localhost:4000'
   return (
     <div>

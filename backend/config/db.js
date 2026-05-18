@@ -1,5 +1,18 @@
-//logic that connect to the database
+// Logic to connect to MongoDB.
 import mongoose from "mongoose";
-export  const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://pooja:Tg1379%23%23@cluster0.2leyzwe.mongodb.net/foodDeliveryApp?retryWrites=true&w=majority').then(()=> console.log("MongoDB connected"));
+
+export const connectDB = async () => {
+    try {
+        const mongoURI = process.env.MONGODB_URI;
+
+        if (!mongoURI) {
+            throw new Error("MONGODB_URI is not set in backend/.env");
+        }
+
+        await mongoose.connect(mongoURI);
+        console.log("MongoDB connected");
+    } catch (error) {
+        console.error("MongoDB connection failed:", error.message);
+        process.exit(1);
     }
+};

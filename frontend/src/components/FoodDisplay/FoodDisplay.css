@@ -1,16 +1,74 @@
-.food-display{
-    margin-top: 30px;
+.food-display {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease-out;
 }
 
-.food-display h2{
-    font-size :max(2vw,24px);
-    font-weight:600;
+.food-display h2 {
+  font-size: max(2.5vw, 28px);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 28px;
+  font-family: var(--font-secondary);
+  border-bottom: 4px solid var(--color-primary);
+  padding-bottom: 12px;
+  display: inline-block;
 }
 
-.food-display-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
-    margin-top: 30px;
-    gap: 30px;
-    row-gap: 50px;
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin-top: 32px;
+  gap: 32px;
+  row-gap: 48px;
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .food-display-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    row-gap: 40px;
+  }
+
+  .food-display h2 {
+    font-size: max(2.2vw, 24px);
+  }
+}
+
+@media (max-width: 768px) {
+  .food-display {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .food-display h2 {
+    font-size: max(2vw, 20px);
+    margin-bottom: 20px;
+  }
+
+  .food-display-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    row-gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-display {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .food-display h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .food-display-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    row-gap: 24px;
+  }
 }

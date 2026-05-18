@@ -1,59 +1,176 @@
-.explore-menu{
-    display:flex;
-    flex-direction: column;
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 40px 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.explore-menu h1 {
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 32px;
+  font-family: var(--font-secondary);
+}
+
+.explore-menu-text {
+  max-width: 60%;
+  color: var(--color-text-light);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.explore-menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  text-align: center;
+  margin: 20px 0;
+  padding-bottom: 16px;
+  padding-right: 8px;
+}
+
+/* Hide scrollbar */
+.explore-menu-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.explore-menu-list::-webkit-scrollbar-track {
+  background: var(--color-light);
+  border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb:hover {
+  background: #1B5E20;
+}
+
+.explore-menu-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.explore-menu-list-item img {
+  width: 7.5vw;
+  min-width: 80px;
+  max-width: 100px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition-base);
+  border: 4px solid transparent;
+  background-color: var(--color-light);
+  padding: 12px;
+  object-fit: contain;
+}
+
+.explore-menu-list-item img:hover {
+  transform: scale(1.1);
+  border-color: var(--color-primary);
+  background-color: rgba(46, 125, 50, 0.1);
+}
+
+.explore-menu-list-item p {
+  margin-top: 8px;
+  color: var(--color-text-light);
+  font-size: max(1.4vw, 14px);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transition-base);
+}
+
+.explore-menu-list-item p:hover {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.explore-menu-list-item img.active,
+.explore-menu-list-item .active {
+  border-color: var(--color-primary);
+  background-color: rgba(46, 125, 50, 0.15);
+  transform: scale(1.05);
+}
+
+.explore-menu-list-item p.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.explore-menu hr {
+  margin: 20px 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border) 50%, transparent 100%);
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1050px) {
+  .explore-menu h1 {
+    font-size: 28px;
+  }
+
+  .explore-menu-text {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .explore-menu-list-item img {
+    width: 70px;
+    min-width: 70px;
+  }
+
+  .explore-menu-list {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-menu {
     gap: 20px;
-}
-.explore-menu h1{
-    color: #262626;
-    font-weight: 500;
-}
-.explore-menu-text{
-    max-width:60%;
-    columns: #808080;
-}
-.explore-menu-list{
-    display: flex;
-    justify-content: space-between;
-    align-items:center ;
-    gap: 30px;
-    text-align: center;
-    margin: 20px 0px;
-    overflow-x: scroll;
-}
-/* to hide scroll bar */
-.explore-menu-list::-webkit-scrollbar{
-    display: none;
-} 
-.explore-menu-list-item img{
-    width: 7.5vw;
-    min-width:80px;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: 0.2s;
+    margin: 30px 0;
+  }
+
+  .explore-menu h1 {
+    font-size: 24px;
+  }
+
+  .explore-menu-text {
+    font-size: 13px;
+  }
+
+  .explore-menu-list-item img {
+    width: 60px;
+  }
+
+  .explore-menu-list {
+    gap: 12px;
+  }
 }
 
-.explore-menu-list-item p{
-    margin-top: 10px;
-    color: #747474;
-    font-size: max(1.4vw,16px);
-    cursor:pointer;
-}
+@media (max-width: 480px) {
+  .explore-menu h1 {
+    font-size: 20px;
+  }
 
-.explore-menu hr{
-    margin: 10px 0px;
-    height: 2px;
-    background-color: #e2e2e2;
-    border:none;
-}
+  .explore-menu-list-item img {
+    width: 50px;
+    min-width: 50px;
+    padding: 8px;
+  }
 
-.explore-menu-list-item .active{
-    border: 4px solid tomato;
-    padding :2px;
-}
+  .explore-menu-list {
+    gap: 8px;
+  }
 
-@media(max-width:1050){
-    .explore-menu-text{
-        max-width: 100%;
-        font-size: 14px;
-    }
+  .explore-menu-list-item p {
+    font-size: 12px;
+  }
 }

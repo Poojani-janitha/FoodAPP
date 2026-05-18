@@ -2,10 +2,26 @@ import React, { useState, useEffect } from 'react'
 import './List.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { assets as foodAssets } from '../../../../assets/frontend_assets/assets.js'
 
 const List = ({url}) => {
  
   const [list, setList] = useState([])
+
+  const getImageUrl = (image) => {
+    if (!image) return '';
+    if (image.startsWith('http')) {
+      return image;
+    } else if (image.includes('/') || image.includes('\\')) {
+      return `${url}/images/${image.split('\\').pop().split('/').pop()}`;
+    } else if (image.match(/^\d+[a-zA-Z]/)) {
+      return `${url}/images/${image}`;
+    } else {
+      // Asset image reference
+      const foodImage = foodAssets[image];
+      return foodImage || image;
+    }
+  };
 
   const fetchList = async () => {
     try {
@@ -54,10 +70,10 @@ const List = ({url}) => {
 
         {list.map((item, index) => (
           <div className="list-table-format" key={index}>
-            <img src={`${url}/images/${item.image}`} alt="" />
+            <img src={getImageUrl(item.image)} alt={item.name} />
             <p>{item.name}</p>
             <p>{item.category}</p>
-            <p>{item.price}</p>
+            <p>Rs{item.price}</p>
             <p onClick={() => deleteItem(item._id)} className='cursor'>x</p>
           </div>
         ))}
